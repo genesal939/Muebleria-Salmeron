@@ -88,13 +88,12 @@
         .page-header h1 { font-size: clamp(2.2rem, 5vw, 4.5rem); margin-bottom: 15px; }
         .page-header p { font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 600px; margin: 0 auto; color: var(--negro-suave); }
 
-        /* --- CUADRÍCULA BENTO PROFESIONAL Y SIMÉTRICA --- */
+        /* --- CUADRÍCULA SIMÉTRICA Y PROFESIONAL --- */
         .seccion-productos { padding: 60px 5%; max-width: 1400px; margin: 0 auto; }
         
         .bento-grid { 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
-            grid-auto-rows: 320px; 
             gap: 24px; 
         }
         
@@ -103,6 +102,7 @@
             overflow: hidden; 
             position: relative; 
             background-color: var(--taupe); 
+            height: 320px; /* Altura fija uniforme para garantizar simetría absoluta */
             cursor: pointer; 
             box-shadow: 0 10px 25px rgba(58, 41, 33, 0.08);
         }
@@ -115,23 +115,6 @@
         }
         
         .bento-item:hover img { transform: scale(1.05); }
-        
-        /* Clases estructurales para darle diseño profesional sin espacios vacíos */
-        .bento-item.grande { grid-column: span 2; grid-row: span 2; }
-        .bento-item.alto { grid-row: span 2; }
-        .bento-item.ancho { grid-column: span 2; }
-
-        /* Estilo especial para la tarjeta del logo */
-        .bento-item.logo-card { 
-            background-color: #1a1512; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-        }
-        .bento-item.logo-card img { 
-            object-fit: contain; 
-            padding: 25px; 
-        }
 
         .bento-overlay { 
             position: absolute; 
@@ -145,7 +128,7 @@
             padding: 25px; 
         }
         .bento-item:hover .bento-overlay { opacity: 1; }
-        .bento-overlay h3 { color: var(--crema); font-size: 1.5rem; margin-bottom: 5px; transform: translateY(15px); transition: 0.3s; }
+        .bento-overlay h3 { color: var(--crema); font-size: 1.4rem; margin-bottom: 5px; transform: translateY(15px); transition: 0.3s; }
         .bento-overlay p { color: var(--taupe); transform: translateY(15px); transition: 0.3s; font-size: 0.95rem; }
         .bento-item:hover .bento-overlay h3, .bento-item:hover .bento-overlay p { transform: translateY(0); }
 
@@ -172,10 +155,7 @@
         @media (max-width: 1024px) {
             .bento-grid { 
                 grid-template-columns: repeat(2, 1fr); 
-                grid-auto-rows: 280px;
             }
-            .bento-item.grande { grid-column: span 2; grid-row: span 1; }
-            .bento-item.ancho { grid-column: span 2; }
         }
 
         @media (max-width: 768px) {
@@ -187,16 +167,12 @@
             }
             
             .bento-grid { 
-                grid-template-columns: 1fr; 
-                grid-auto-rows: 260px; 
+                grid-template-columns: 1fr; /* Una columna limpia en teléfonos */
                 gap: 16px;
             }
             
-            .bento-item.grande, 
-            .bento-item.alto, 
-            .bento-item.ancho { 
-                grid-column: span 1; 
-                grid-row: span 1; 
+            .bento-item {
+                height: 280px;
             }
             
             .proyectos-container { 
@@ -216,7 +192,7 @@
 
         @media (max-width: 480px) {
             .page-header { padding: 120px 4% 40px 4%; }
-            .bento-grid { grid-auto-rows: 220px; }
+            .bento-item { height: 240px; }
             .btn-nav-principal { padding: 8px 14px; font-size: 0.75rem; }
         }
     </style>
@@ -242,26 +218,26 @@
 
     <section class="seccion-productos">
         <div class="bento-grid">
-            <!-- 1. Logo (Grande) -->
-            <div class="bento-item grande logo-card">
-                <img src="/Muebleria-Salmeron/Imagenes/logo.png" alt="Logo Mueblería Salmerón">
-                <div class="bento-overlay"><h3>Mueblería Salmerón</h3><p>Diseño, elegancia y artesanía en madera.</p></div>
+            <!-- 1. Primera tarjeta actualizada con cerca.jpeg -->
+            <div class="bento-item">
+                <img src="/Muebleria-Salmeron/Imagenes/cerca.jpeg" alt="Cercas y exteriores">
+                <div class="bento-overlay"><h3>Diseños en Madera</h3><p>Estilo y durabilidad para exteriores.</p></div>
             </div>
             
-            <!-- 2. Clósets (Alto) -->
-            <div class="bento-item alto">
+            <!-- 2. Clósets -->
+            <div class="bento-item">
                 <img src="/Muebleria-Salmeron/Imagenes/11.jpeg" alt="Clósets a medida">
                 <div class="bento-overlay"><h3>Clósets a Medida</h3><p>Optimización de espacios.</p></div>
             </div>
             
-            <!-- 3. Pisos (Normal) -->
+            <!-- 3. Pisos -->
             <div class="bento-item">
                 <img src="/Muebleria-Salmeron/Imagenes/piso.png" alt="Piso de madera">
                 <div class="bento-overlay"><h3>Pisos y Terrazas</h3><p>Maderas tratadas para exterior.</p></div>
             </div>
             
-            <!-- 4. Innovación (Ancho) -->
-            <div class="bento-item ancho">
+            <!-- 4. Innovación -->
+            <div class="bento-item">
                 <img src="/Muebleria-Salmeron/Imagenes/12.jpeg" alt="Innovación y Tendencias">
                 <div class="bento-overlay"><h3>Innovación y Tendencias</h3><p>Piezas únicas en madera natural.</p></div>
             </div>
@@ -284,8 +260,8 @@
                 <div class="bento-overlay"><h3>Muebles de Baño</h3><p>Detalles que marcan la diferencia.</p></div>
             </div>
             
-            <!-- 8. Sala (Ancho) -->
-            <div class="bento-item ancho">
+            <!-- 8. Sala -->
+            <div class="bento-item">
                 <img src="/Muebleria-Salmeron/Imagenes/sala.jpeg" alt="Mueble de sala">
                 <div class="bento-overlay"><h3>Comodidad y calidez</h3><p>Diseño para tu casa.</p></div>
             </div>
