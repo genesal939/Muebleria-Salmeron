@@ -110,14 +110,52 @@
         .marquee-content span::after { content: '✦'; font-style: normal; font-size: 1rem; color: var(--caramelo); }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- FOOTER EXACTAMENTE IGUAL AL CATÁLOGO --- */
-        footer { background-color: var(--espresso); color: var(--crema); padding: 60px 5% 30px 5%; border-radius: 30px 30px 0 0; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
-        .footer-logo { width: 55px; height: 55px; object-fit: cover; background-color: white; border-radius: 50%; padding: 2px; margin-bottom: 15px; }
-        .footer-grid h4 { font-family: var(--fuente-titulos); font-size: 1.3rem; margin-bottom: 15px; color: var(--caramelo); }
-        .footer-grid p, .footer-grid a { color: var(--taupe); text-decoration: none; display: block; margin-bottom: 8px; font-size: 0.95rem; }
+        /* --- FOOTER EXACTO AL DE LA IMAGEN --- */
+        footer { 
+            background-color: var(--espresso); 
+            color: var(--crema); 
+            padding: 60px 5% 30px 5%; 
+            border-radius: 30px 30px 0 0; 
+            margin-top: 40px;
+        }
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr 1fr; 
+            gap: 40px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .footer-logo { 
+            width: 55px; 
+            height: 55px; 
+            object-fit: cover; 
+            background-color: white; 
+            border-radius: 50%; 
+            padding: 2px; 
+            margin-bottom: 15px; 
+        }
+        .footer-grid h4 { 
+            font-family: var(--fuente-titulos); 
+            font-size: 1.35rem; 
+            margin-bottom: 15px; 
+            color: var(--caramelo); 
+        }
+        .footer-grid p, .footer-grid a { 
+            color: var(--taupe); 
+            text-decoration: none; 
+            display: block; 
+            margin-bottom: 8px; 
+            font-size: 0.95rem; 
+        }
         .footer-grid a:hover { color: var(--crema); }
-        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(166, 155, 144, 0.2); color: var(--taupe); font-size: 0.85rem; }
+        .footer-bottom { 
+            text-align: center; 
+            margin-top: 40px; 
+            padding-top: 20px; 
+            border-top: 1px solid rgba(166, 155, 144, 0.2); 
+            color: var(--taupe); 
+            font-size: 0.85rem; 
+        }
 
         /* ==========================================
            MEDIA QUERIES (ADAPTABILIDAD)
@@ -129,7 +167,7 @@
             .img-principal { width: 85%; height: 100%; border-radius: 120px 120px 20px 20px; right: 50%; transform: translateX(50%); }
             .img-secundaria { display: none; } 
             
-            /* AQUÍ ESTÁ LA MAGIA PARA QUE EN CELULAR SE VEA IGUAL AL CATÁLOGO */
+            /* Adaptación del footer para móviles (idéntico al catálogo) */
             .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 30px; }
             .footer-logo { margin: 0 auto 15px auto; }
             .footer-grid p { margin: 0 auto 10px auto; }
@@ -146,6 +184,7 @@
 </head>
 <body>
     <header>
+        <!-- Nota: Asegúrate de que la ruta de la imagen sea correcta según tu carpeta -->
         <a href="index.html" class="logo-wrapper">
             <img src="Imagenes/logo.png" alt="Logo" class="logo-img">
             <span class="logo-text">Mueblería Salmerón</span>
@@ -177,7 +216,7 @@
         </div>
     </div>
 
-    <!-- FOOTER IDÉNTICO AL CATÁLOGO -->
+    <!-- FOOTER IDÉNTICO AL DE TU IMAGEN -->
     <footer>
         <div class="footer-grid">
             <div>
