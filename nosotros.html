@@ -1,8 +1,5 @@
-El problema por el cual no se visualiza el logo (igual que pasaba con las imágenes del catálogo) es por la ruta absoluta con el nombre del repositorio (/Muebleria-Salmeron/Imagenes/logo.png), la cual a veces falla dependiendo de cómo esté configurado tu GitHub Pages. Lo más seguro y compatible para carpetas locales es usar rutas relativas directas (Imagenes/logo.png).
-Y respecto a que no te salen las opciones de la barra del menú, se debe a que en los estilos CSS para celulares y tablets (@media (max-width: 900px)) estaba la regla nav { display: none; }, la cual ocultaba por completo los botones del menú en pantallas medianas y pequeñas (como tablets o celulares en horizontal).
-Aquí tienes el código de tu página Nosotros corregido con ambas soluciones:
- * Rutas de las imágenes arregladas con Imagenes/logo.png para que carguen sin problema.
- * Menú adaptable optimizado para que no desaparezca en dispositivos móviles, permitiendo que se vea correctamente en cualquier pantalla.
+¡Claro que sí! Con gusto eliminé esa imagen de la sección "Nosotros" para que el diseño quede centrado únicamente en el texto institucional, limpio y sin elementos visuales que no te convencen.
+Aquí tienes el código completo y actualizado de la página Nosotros sin la imagen del centro:
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,7 +19,6 @@ Aquí tienes el código de tu página Nosotros corregido con ambas soluciones:
         .logo-img { width: 45px; height: 45px; object-fit: cover; border-radius: 50%; background-color: white; padding: 2px; }
         .logo-text { font-family: var(--fuente-titulos); font-size: clamp(1rem, 2vw, 1.3rem); color: var(--espresso); font-weight: 600; letter-spacing: -0.5px; }
         
-        /* --- MENÚ VISIBLE EN CUALQUIER PANTALLA --- */
         nav { display: flex; gap: 15px; align-items: center; }
         .nav-btn { background: none; border: none; text-decoration: none; color: var(--espresso); font-family: var(--fuente-textos); font-weight: 500; font-size: 0.9rem; padding: 6px 10px; transition: all 0.3s; }
         .nav-btn:hover { color: var(--caramelo); }
@@ -35,10 +31,10 @@ Aquí tienes el código de tu página Nosotros corregido con ambas soluciones:
         .page-header h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 15px; }
         .page-header p { font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 600px; margin: 0 auto; color: var(--crema); opacity: 0.9; }
         
-        .contenido-nosotros { padding: 60px 5%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-        .texto-nosotros h2 { font-size: clamp(2rem, 3.5vw, 2.5rem); color: var(--espresso); margin-bottom: 15px; }
-        .texto-nosotros p { font-size: 1.05rem; color: var(--madera); margin-bottom: 15px; }
-        .img-nosotros { width: 100%; height: 400px; object-fit: cover; border-radius: 100px 100px 20px 20px; box-shadow: 0 15px 35px rgba(58, 41, 33, 0.15); }
+        /* Contenido adaptado a una sola columna centrada y elegante al quitar la foto lateral */
+        .contenido-nosotros { padding: 80px 5%; max-width: 900px; margin: 0 auto; text-align: center; }
+        .texto-nosotros h2 { font-size: clamp(2rem, 4vw, 2.8rem); color: var(--espresso); margin-bottom: 25px; }
+        .texto-nosotros p { font-size: 1.15rem; color: var(--madera); margin-bottom: 25px; line-height: 1.8; }
         
         .valores { background-color: white; padding: 60px 5%; border-radius: 40px; max-width: 1200px; margin: 0 auto 40px auto; text-align: center; }
         .valores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 30px; }
@@ -60,15 +56,13 @@ Aquí tienes el código de tu página Nosotros corregido con ambas soluciones:
             nav { gap: 8px; }
             .nav-btn { font-size: 0.8rem; padding: 4px 6px; }
             .logo-text { font-size: 1.1rem; }
-            .contenido-nosotros { grid-template-columns: 1fr; }
-            .img-nosotros { height: 300px; border-radius: 40px; }
             .valores-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
             .footer-logo { margin: 0 auto 15px auto; }
         }
 
         @media (max-width: 480px) {
-            .logo-text { display: none; } /* Oculta el texto largo en teléfonos muy pequeños para que quepan bien los botones del menú */
+            .logo-text { display: none; }
         }
     </style>
 </head>
@@ -97,9 +91,6 @@ Aquí tienes el código de tu página Nosotros corregido con ambas soluciones:
             <p>En Mueblería Salmerón creemos que un hogar no se decora, se construye con historias. Con más de 20 años de experiencia, hemos convertido la pasión por la carpintería y el diseño en muebles que combinan tradición, calidad y estilo.</p>
             <p>Trabajamos con maderas de calidad, cuidando cada detalle para crear piezas únicas, resistentes y pensadas para acompañarte durante muchos años.</p>
             <p>Nuestro trabajo une la precisión de la ebanistería tradicional con las tendencias del diseño contemporáneo, creando muebles que no solo transforman un espacio, sino que reflejan la personalidad de quienes lo habitan.</p>
-        </div>
-        <div>
-            <img src="Imagenes/sala.jpeg" alt="Trabajo en madera" class="img-nosotros">
         </div>
     </section>
 
