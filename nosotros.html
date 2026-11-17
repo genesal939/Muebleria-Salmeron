@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | Mueblería Salmerón</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --espresso: #3A2921; --madera: #8B5E3C; --caramelo: #C28A55; --crema: #F5F0E8; --taupe: #A69B90; --negro-suave: #24201D; --fuente-titulos: 'Fraunces', serif; --fuente-textos: 'Outfit', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--crema); color: var(--negro-suave); font-family: var(--fuente-textos); overflow-x: hidden; line-height: 1.6; }
+        h1, h2, h3 { font-family: var(--fuente-titulos); font-weight: 400; line-height: 1.1; }
+        header { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 1200px; background: rgba(245, 240, 232, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(58, 41, 33, 0.1); display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; border-radius: 50px; z-index: 1000; box-shadow: 0 15px 35px rgba(36, 32, 29, 0.08); }
+        .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-img { width: 55px; height: 55px; object-fit: cover; border-radius: 50%; background-color: white; padding: 2px; }
+        .logo-text { font-family: var(--fuente-titulos); font-size: 1.3rem; color: var(--espresso); font-weight: 600; letter-spacing: -0.5px; }
+        nav { display: flex; gap: 30px; }
+        .nav-btn { background: none; border: none; text-decoration: none; color: var(--espresso); font-family: var(--fuente-textos); font-weight: 500; font-size: 0.95rem; padding: 6px 12px; transition: all 0.3s; }
+        .nav-btn:hover { color: var(--caramelo); }
+        .nav-btn.active { border-bottom: 2px solid var(--espresso); font-weight: 600; }
+        .btn-nav-principal { background-color: var(--espresso); color: var(--crema); padding: 12px 26px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .btn-nav-principal:hover { background-color: var(--madera); }
+        .page-header { padding: 160px 5% 60px 5%; text-align: center; background-color: var(--madera); color: var(--crema); border-radius: 0 0 50px 50px; }
+        .page-header h1 { font-size: clamp(3rem, 5vw, 5rem); margin-bottom: 20px; }
+        .page-header p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; color: var(--crema); opacity: 0.9; }
+        .contenido-nosotros { padding: 80px 5%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .texto-nosotros h2 { font-size: 2.5rem; color: var(--espresso); margin-bottom: 20px; }
+        .texto-nosotros p { font-size: 1.1rem; color: var(--madera); margin-bottom: 20px; }
+        .img-nosotros { width: 100%; height: 500px; object-fit: cover; border-radius: 200px 200px 20px 20px; box-shadow: 0 20px 40px rgba(58, 41, 33, 0.15); }
+        .valores { background-color: white; padding: 80px 5%; border-radius: 50px; max-width: 1200px; margin: 0 auto 50px auto; text-align: center; }
+        .valores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+        .valor-card { background-color: var(--crema); padding: 30px; border-radius: 20px; transition: transform 0.3s; }
+        .valor-card:hover { transform: translateY(-10px); }
+        .valor-card h3 { color: var(--espresso); font-size: 1.5rem; margin-bottom: 10px; }
+        .valor-card p { color: var(--madera); font-size: 0.95rem; }
+        footer { background-color: var(--espresso); color: var(--crema); padding: 80px 5% 40px 5%; border-radius: 40px 40px 0 0; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; max-width: 1200px; margin: 0 auto; }
+        .footer-logo { width: 65px; height: 65px; object-fit: cover; background-color: white; border-radius: 50%; padding: 2px; margin-bottom: 15px; }
+        .footer-grid h4 { font-family: var(--fuente-titulos); font-size: 1.5rem; margin-bottom: 20px; color: var(--caramelo); }
+        .footer-grid p, .footer-grid a { color: var(--taupe); text-decoration: none; display: block; margin-bottom: 10px; }
+        .footer-grid a:hover { color: var(--crema); }
+        .footer-bottom { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid rgba(166, 155, 144, 0.2); color: var(--taupe); font-size: 0.9rem; }
+        @media (max-width: 900px) {
+            nav { display: none; } .contenido-nosotros { grid-template-columns: 1fr; }
+            .img-nosotros { height: 300px; border-radius: 50px; }
+            .valores-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-logo { margin: 0 auto 15px auto; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo-wrapper">
+            <img src="logo.jpg" alt="Logo" class="logo-img">
+            <span class="logo-text">Mueblería Salmerón</span>
+        </a>
+        <nav>
+            <a href="index.html" class="nav-btn">Inicio</a>
+            <a href="catalogo.html" class="nav-btn">Catálogo</a>
+            <a href="nosotros.html" class="nav-btn active">Nosotros</a>
+        </nav>
+        <a href="https://wa.me/50684680441" class="btn-nav-principal" target="_blank" rel="noopener">Contacto</a>
+    </header>
+
+    <section class="page-header">
+        <h1>Nuestra Historia</h1>
+        <p>Pasión por la madera, el diseño y los espacios que se sienten como en casa.</p>
+    </section>
+
+    <section class="contenido-nosotros">
+        <div class="texto-nosotros">
+            <h2>Arte y Diseño Contemporáneo</h2>
+            <p>En Mueblería Salmerón creemos que un hogar no se decora, se construye con historias. Con más de 20 años de experiencia, hemos convertido la pasión por la carpintería y el diseño en muebles que combinan tradición, calidad y estilo.</p>
+            <p>Trabajamos con maderas de calidad, cuidando cada detalle para crear piezas únicas, resistentes y pensadas para acompañarte durante muchos años.</p>
+            <p>Nuestro trabajo une la precisión de la ebanistería tradicional con las tendencias del diseño contemporáneo, creando muebles que no solo transforman un espacio, sino que reflejan la personalidad de quienes lo habitan.</p>
+        </div>
+        <div>
+            <img src="sala.jpg" alt="Trabajo en madera" class="img-nosotros">
+        </div>
+    </section>
+
+    <section class="valores">
+        <h2 style="font-size: 3rem; color: var(--espresso);">Nuestros Valores</h2>
+        <div class="valores-grid">
+            <div class="valor-card">
+                <h3>Calidad</h3>
+                <p>Utilizamos maderas nobles de la más alta durabilidad para piezas que perduran generaciones.</p>
+            </div>
+            <div class="valor-card">
+                <h3>Sostenibilidad</h3>
+                <p>Cada tablón de madera es seleccionado de bosques gestionados de forma responsable y sostenible.</p>
+            </div>
+            <div class="valor-card">
+                <h3>Diseño a Medida</h3>
+                <p>Nos adaptamos a tus espacios y necesidades para crear el mueble perfecto para tu hogar.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <img src="logo.jpg" alt="Logo" class="footer-logo">
+                <h4>Mueblería Salmerón</h4>
+                <p style="max-width: 300px;">Creando espacios que cuentan historias. Diseño consciente y artesanía local.</p>
+            </div>
+            <div>
+                <h4>Menú</h4>
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="nosotros.html">Nosotros</a>
+            </div>
+            <div>
+                <h4>Contacto</h4>
+                <a href="mailto:denissalmeron40@gmail.com">denissalmeron40@gmail.com</a>
+                <a href="mailto:denissalmeron7028@gmail.com">denissalmeron7028@gmail.com</a>
+                <a href="https://wa.me/50684680441" target="_blank" rel="noopener">+506-8468-0441</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Mueblería Salmerón.</p>
+        </div>
+    </footer>
+</body>
+</html>
