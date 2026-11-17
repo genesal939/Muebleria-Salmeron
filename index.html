@@ -111,14 +111,13 @@
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* ==========================================
-           FOOTER EXACTO AL DEL PRIMER CÓDIGO
+           FOOTER BASE (ESCRITORIO)
            ========================================== */
         footer { 
             background-color: var(--espresso); 
             color: var(--crema); 
             padding: 60px 5% 30px 5%; 
             border-radius: 30px 30px 0 0; 
-            /* Quitamos el margin-top que lo separaba feo del marquee */
         }
         .footer-grid { 
             display: grid; 
@@ -160,7 +159,7 @@
         }
 
         /* ==========================================
-           MEDIA QUERIES (ADAPTABILIDAD)
+           MEDIA QUERIES
            ========================================== */
         @media (max-width: 950px) {
             .hero { grid-template-columns: 1fr; text-align: center; padding-top: 120px; gap: 30px; }
@@ -168,12 +167,6 @@
             .hero-imgs { min-height: 380px; margin-top: 10px; width: 100%; }
             .img-principal { width: 85%; height: 100%; border-radius: 120px 120px 20px 20px; right: 50%; transform: translateX(50%); }
             .img-secundaria { display: none; } 
-            
-            /* EL FOOTER SE MANTIENE EN 3 COLUMNAS EN TABLET */
-            .footer-grid { 
-                grid-template-columns: 1.5fr 1fr 1fr; 
-                gap: 20px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -182,18 +175,43 @@
             nav { gap: 6px; }
             .nav-btn { font-size: 0.75rem; padding: 4px 6px; }
             .btn-nav-principal { padding: 6px 12px; font-size: 0.75rem; }
-
-            /* AQUÍ ESTÁ EL TRUCO: EN CELULAR NO SE APILA EN 1 COLUMNA, SE MANTIENE COMO EN PC */
+            
+            /* --- DISEÑO DEL FOOTER EXACTO A LA CAPTURA 1 --- */
             .footer-grid { 
-                grid-template-columns: 1.5fr 1fr 1fr; /* Mantiene la estructura */
-                gap: 15px; 
-                text-align: left; /* Alineado a la izquierda para que se vea profesional */
+                grid-template-columns: 1fr 1fr; /* Menú y Contacto lado a lado */
+                text-align: left;
+                gap: 30px 15px;
             }
-            .footer-logo { margin: 0 0 10px 0; }
-            .footer-grid p { margin: 0 0 10px 0; font-size: 0.8rem; }
-            .footer-grid h4 { font-size: 1rem; margin-bottom: 10px; }
-            .footer-grid a { font-size: 0.8rem; }
-            footer { padding: 40px 5% 20px 5%; }
+            /* El primer bloque (Logo + Marca) ocupa todo el ancho y se centra */
+            .footer-grid > div:first-child {
+                grid-column: 1 / -1;
+                text-align: center;
+                border-bottom: 1px solid rgba(166, 155, 144, 0.15);
+                padding-bottom: 25px;
+                margin-bottom: 10px;
+            }
+            .footer-logo { 
+                margin: 0 auto 12px auto; 
+                width: 50px; 
+                height: 50px; 
+            }
+            .footer-grid p { 
+                margin: 0 auto; 
+                max-width: 280px; 
+                font-size: 0.9rem;
+            }
+            .footer-grid h4 { 
+                font-size: 1.15rem; 
+                margin-bottom: 15px; 
+            }
+            .footer-grid a {
+                font-size: 0.85rem;
+                margin-bottom: 12px;
+            }
+            footer { 
+                padding: 40px 5% 25px 5%; 
+                border-radius: 24px 24px 0 0;
+            }
         }
     </style>
 </head>
@@ -230,7 +248,7 @@
         </div>
     </div>
 
-    <!-- FOOTER LITERAL DEL PRIMER CÓDIGO -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
             <div>
